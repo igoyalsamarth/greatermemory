@@ -4,4 +4,14 @@ version = "0.1.0"
 description = "A greatermemory is better than supermemory"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "fastapi>=0.131.0",
+    "langchain-community>=0.4.1",
+    "langchain-core>=1.2.14",
+    "langchain-ollama>=1.0.1",
+    "langchain-qdrant>=1.1.0",
+    "psycopg2-binary>=2.9.11",
+    "pydantic>=2.12.5",
+    "sqlalchemy>=2.0.46",
+    "uvicorn>=0.41.0",
+]
