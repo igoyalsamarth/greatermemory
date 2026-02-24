@@ -7,23 +7,20 @@ from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 
-# --- Enum for memory_type ---
 class MemoryType(str, PyEnum):
     fact = "fact"
     preference = "preference"
     episodic = "episodic"
 
 
-# --- SQLAlchemy Base ---
 class Base(DeclarativeBase):
     pass
 
 
-# --- Table Models ---
-class SuperMemoryTable(Base):
+class GreaterMemoryTable(Base):
     """PostgreSQL table for storing memories."""
 
-    __tablename__ = "super_memory"
+    __tablename__ = "greater_memory"
 
     id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True),

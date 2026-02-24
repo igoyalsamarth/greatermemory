@@ -3,11 +3,11 @@ import os
 import uvicorn
 
 from api.app import create_app
-from core.model.schemas import SuperMemoryModel
+from core.model.schemas import GreaterMemoryModel
 
 
 def main():
-    config = SuperMemoryModel(
+    config = GreaterMemoryModel(
         postgres_url=os.getenv(
             "POSTGRES_URL", "postgresql://localhost:5432/greatermemory"
         ),

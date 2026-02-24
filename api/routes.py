@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Request
 from pydantic import BaseModel
 
-from core.model.schemas import SuperMemoryResponse
-from core.supermemory import SuperMemory
+from core.model.schemas import GreaterMemoryResponse
+from core.greatermemory import GreaterMemory
 
 router = APIRouter()
 
@@ -11,15 +11,15 @@ class MemoryInput(BaseModel):
     memory: str
 
 
-@router.post("/memories", response_model=SuperMemoryResponse)
-def add_memory(request: Request, body: MemoryInput) -> SuperMemoryResponse:
+@router.post("/memories", response_model=GreaterMemoryResponse)
+def add_memory(request: Request, body: MemoryInput) -> GreaterMemoryResponse:
     """Add a new memory."""
-    supermemory: SuperMemory = request.app.state.supermemory
-    return supermemory.add(body.memory)
+    greatermemory: GreaterMemory = request.app.state.greatermemory
+    return greatermemory.add(body.memory)
 
 
-@router.get("/memories/retrieve", response_model=list[SuperMemoryResponse])
-def retrieve_memories(request: Request, query: str) -> list[SuperMemoryResponse]:
+@router.get("/memories/retrieve", response_model=list[GreaterMemoryResponse])
+def retrieve_memories(request: Request, query: str) -> list[GreaterMemoryResponse]:
     """Retrieve memories matching the query."""
-    supermemory: SuperMemory = request.app.state.supermemory
-    return supermemory.retrieve(query)
+    greatermemory: GreaterMemory = request.app.state.greatermemory
+    return greatermemory.retrieve(query)

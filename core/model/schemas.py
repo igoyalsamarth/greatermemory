@@ -6,7 +6,7 @@ from pydantic import BaseModel
 from db.models import MemoryType
 
 
-class SuperMemoryCreate(BaseModel):
+class GreaterMemoryCreate(BaseModel):
     """Schema for creating a new memory."""
 
     memory: str
@@ -14,7 +14,7 @@ class SuperMemoryCreate(BaseModel):
     confidence_score: float
 
 
-class SuperMemoryResponse(BaseModel):
+class GreaterMemoryResponse(BaseModel):
     """Schema for reading/returning a memory."""
 
     id: uuid.UUID
@@ -26,7 +26,7 @@ class SuperMemoryResponse(BaseModel):
     model_config = {"from_attributes": True}
 
 
-class SuperMemoryModel(BaseModel):
+class GreaterMemoryModel(BaseModel):
     """Database configuration."""
 
     postgres_url: str
